@@ -275,8 +275,8 @@ body {
 }
 
 body {
-  background: #ffffff;
-  color: #2E2E2E;
+  background: #363636;
+  color: #ffffff;
   line-height: normal;
   font-family: "NotoSansKR", sans-serif, Malgungothic, "맑은고딕", Dotum, "돋움";
   font-weight: 400;
@@ -321,10 +321,33 @@ caption>span {
 /* layoutWrap */
 #layoutWrap {
   position: relative;
+  background-color: #181816;
+  color: #ffffff;
   min-width: 360px;
   max-width: 414px;
   min-height: 100vh;
   height: 100%;
   margin: auto;
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.1);
+  padding: 0 16px;
+  padding-bottom: 30px;
+}
+
+.swiper {
+  width: 100%;
+  height: 280px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
 }
