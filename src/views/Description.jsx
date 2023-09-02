@@ -1,4 +1,4 @@
-import { Box, Button, Chip, Typography } from "@mui/material";
+import { Alert, Box, Button, Chip, Snackbar, Typography } from "@mui/material";
 import IosShareOutlinedIcon from "@mui/icons-material/IosShareOutlined";
 import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
 import classes from "./Description.module.css";
@@ -8,9 +8,23 @@ import { useNavigate } from "react-router-dom";
 
 import sa from "../assets/images/sa.png";
 import na from "../assets/images/na.png";
+import { useState } from "react";
 
 export default function Description() {
   const navigator = useNavigate();
+  const vertical = "bottom";
+  const horizontal = "center";
+  const [open, setOpen] = useState(false);
+
+  const share = async () => {
+    window.navigator.clipboard
+      .writeText(window.location.href)
+      .then(() => setOpen(true));
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div>
@@ -26,7 +40,10 @@ export default function Description() {
           sx={{ fontSize: 30, cursor: "pointer" }}
           onClick={() => navigator(-1)}
         />
-        <IosShareOutlinedIcon sx={{ fontSize: 30 }} />
+        <IosShareOutlinedIcon
+          sx={{ fontSize: 30, cursor: "pointer" }}
+          onClick={share}
+        />
       </Box>
       <div className={classes.category}>
         <Chip
@@ -127,6 +144,20 @@ export default function Description() {
             원문기사 바로가기
           </a>
         </Button>
+      </Box>
+      <Box sx={{ width: 500 }}>
+        <Snackbar
+          anchorOrigin={{ vertical, horizontal }}
+          open={open}
+          autoHideDuration={1500}
+          onClose={handleClose}
+        >
+          <Alert onClose={handleClose} severity="info">
+            <Typography variant="body1" sx={{ fontSize: "1.3rem" }}>
+              링크가 클립보드에 복사되었습니다.
+            </Typography>
+          </Alert>
+        </Snackbar>
       </Box>
     </div>
   );

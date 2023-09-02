@@ -5,45 +5,44 @@ import SearchIcon from "@mui/icons-material/SearchOutlined";
 import classes from "./Home.module.css";
 import logo from "../assets/images/logo.svg";
 import { useState } from "react";
+import data from "../utils/mock";
 
 const categories = [
   {
-    id: "전체",
+    id: "all",
     name: "전체",
   },
   {
-    id: "사회",
+    id: "politics",
     name: "사회",
   },
   {
-    id: "정치",
+    id: "society",
     name: "정치",
   },
   {
-    id: "엔터",
-    name: "엔터",
+    id: "life",
+    name: "생활",
   },
   {
-    id: "경제",
+    id: "economy",
     name: "경제",
   },
   {
-    id: "IT",
-    name: "IT",
-  },
-  {
-    id: "스포츠",
-    name: "스포츠",
+    id: "science",
+    name: "과학",
   },
 ];
 
 export default function Home() {
   const navigator = useNavigate();
-  const [tab, setTab] = useState("전체");
+  const [tab, setTab] = useState("all");
 
   const moveToDocs = (id) => {
     navigator("docs/" + id);
   };
+
+  const keywords = data[tab];
 
   return (
     <div>
@@ -87,33 +86,33 @@ export default function Home() {
         ))}
       </Box>
       <div className={classes.speechBubbleOne} onClick={() => moveToDocs(1)}>
-        <Typography variant="h3">금융감독원</Typography>
+        <Typography variant="h3">{keywords[0]}</Typography>
       </div>
       <div className={classes.middleContainer}>
         <div className={classes.speechBubbleTwo} onClick={() => moveToDocs(1)}>
-          <Typography variant="h3">연체율 상승</Typography>
+          <Typography variant="h3">{keywords[1]}</Typography>
         </div>
         <div>
           <div
             className={classes.speechBubbleThree}
             onClick={() => moveToDocs(1)}
           >
-            <Typography variant="h3">조선비즈</Typography>
+            <Typography variant="h3">{keywords[2]}</Typography>
           </div>
           <div
             className={classes.speechBubbleFour}
             onClick={() => moveToDocs(1)}
           >
-            <Typography variant="h3">나흘</Typography>
+            <Typography variant="h3">{keywords[3]}</Typography>
           </div>
         </div>
       </div>
       <div className={classes.middleContainer2}>
         <div className={classes.speechBubbleFive} onClick={() => moveToDocs(1)}>
-          <Typography variant="h3">실적 방어</Typography>
+          <Typography variant="h3">{keywords[4]}</Typography>
         </div>
         <div className={classes.speechBubbleSix} onClick={() => moveToDocs(1)}>
-          <Typography variant="h3">대손비용 증가</Typography>
+          <Typography variant="h3">{keywords[5]}</Typography>
         </div>
       </div>
     </div>
