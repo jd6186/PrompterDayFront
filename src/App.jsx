@@ -5,12 +5,12 @@ import Description from "./views/Description.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/PrompterDayFront",
     element: <Layout />,
     children: [
       { index: true, element: <Home /> },
       {
-        path: "/docs/:id",
+        path: "docs/:id",
         element: <Description />,
       },
     ],

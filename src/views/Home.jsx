@@ -42,7 +42,7 @@ export default function Home() {
   const [tab, setTab] = useState("전체");
 
   const moveToDocs = (id) => {
-    navigator("/docs/" + id);
+    navigator("docs/" + id);
   };
 
   return (

@@ -24,7 +24,7 @@ export default function Description() {
       >
         <ArrowBackIosNewOutlinedIcon
           sx={{ fontSize: 30, cursor: "pointer" }}
-          onClick={() => navigator("/")}
+          onClick={() => navigator(-1)}
         />
         <IosShareOutlinedIcon sx={{ fontSize: 30 }} />
       </Box>
